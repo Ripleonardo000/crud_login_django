@@ -16,7 +16,7 @@ Including another URLconf
 """
 
 
-
+from django.shortcuts import redirect
 from django.contrib import admin
 from django.urls import path
 from crud_app import views
@@ -29,7 +29,14 @@ urlpatterns = [
     path('productos/eliminar/<int:id>/', views.eliminar_producto, name='eliminar_producto'),
     path('login/', views.login_view, name='login'),
 path('logout/', views.logout_view, name='logout'),
+
+ # 👇 Nueva línea: redirigir la raíz al login
+    
+    
+    
+    path('', lambda request: redirect('login')),
 ]
+
 
 
 
